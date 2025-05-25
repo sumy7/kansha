@@ -1,0 +1,25 @@
+product:
+  type: lib
+  platforms: [jvm, android, iosArm64, iosSimulatorArm64, iosX64]
+
+dependencies:
+  - $compose.foundation: exported
+  - $compose.material3: exported
+  - io.coil-kt.coil3:coil-core:3.0.4: exported
+  - io.coil-kt.coil3:coil-compose:3.0.4: exported
+#  - io.coil-kt.coil3:coil-network-ktor3:3.2.0: exported
+  - io.coil-kt.coil3:coil-svg:3.0.4: exported
+#  - io.coil-kt:coil-compose:2.7.0: exported
+#  - io.coil-kt:coil-svg:2.7.0: exported
+  - ../../yoga-kmp2: exported
+  - ../../kansha-core: exported
+
+dependencies@android:
+  # Compose integration with Android activities
+  - androidx.activity:activity-compose:1.7.2: exported
+  - androidx.appcompat:appcompat:1.6.1: exported
+
+settings:
+  compose:
+    enabled: true
+    version: 1.6.10

@@ -1,0 +1,72 @@
+[versions]
+agp = "8.7.2"
+kotlin = "2.1.10"
+compileSdk = "35"
+minSdk = "21"
+libraryVersion = "0.2.2"
+ktor = "3.1.3"
+ktor2 = "2.3.13"
+coroutines = "1.9.0"
+kotlinxDatetime = "0.6.1"
+kotlinx-io = "0.6.0"
+okio = "3.9.1"
+dokka = "1.9.20"
+kotlinx-benchmark = "0.4.12"
+
+#korlibs = "999.0.0.999" # 999.0.0.999 is local version
+korlibs = "6.0.1"
+mavenPublish = "0.30.0"
+
+stately = "2.1.0"
+jsoup = "1.18.3"
+fleeksoft-io = "0.0.3"
+
+yoga = "3.2.1"
+
+[libraries]
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+ktor2-io = { module = "io.ktor:ktor-io", version.ref = "ktor2" }
+ktor2-http = { module = "io.ktor:ktor-http", version.ref = "ktor2" }
+ktor2-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor2" }
+ktor2-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor2" }
+ktor2-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor2" }
+ktor2-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor2" }
+ktor2-client-js = { module = "io.ktor:ktor-client-js", version.ref = "ktor2" }
+ktor2-client-win = { module = "io.ktor:ktor-client-winhttp", version.ref = "ktor2" }
+ktor-io = { module = "io.ktor:ktor-io", version.ref = "ktor" }
+ktor-http = { module = "io.ktor:ktor-http", version.ref = "ktor" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-js = { module = "io.ktor:ktor-client-js", version.ref = "ktor" }
+ktor-client-win = { module = "io.ktor:ktor-client-winhttp", version.ref = "ktor" }
+ktor-utils = { module = "io.ktor:ktor-utils", version.ref = "ktor" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
+kotlinx-io = { module = "org.jetbrains.kotlinx:kotlinx-io-core", version.ref = "kotlinx-io" }
+korlibs-io = { module = "com.soywiz:korlibs-io", version.ref = "korlibs" }
+korlibs-io-network-core = { module = "com.soywiz:korlibs-io-network-core", version.ref = "korlibs" }
+stately-concurrency = { module = "co.touchlab:stately-concurrency", version.ref = "stately" }
+jsoup = { module = "org.jsoup:jsoup", version.ref = "jsoup" }
+okio = { module = "com.squareup.okio:okio", version.ref = "okio" }
+okio-nodefilesystem = { module = "com.squareup.okio:okio-nodefilesystem", version.ref = "okio" }
+kotlinx-benchmark-runtime = { module = "org.jetbrains.kotlinx:kotlinx-benchmark-runtime", version.ref = "kotlinx-benchmark" }
+fleeksoft-io-core = { module = "com.fleeksoft.io:io-core", version.ref = "fleeksoft-io" }
+fleeksoft-io = { module = "com.fleeksoft.io:io", version.ref = "fleeksoft-io" }
+fleeksoft-io-kotlinx = { module = "com.fleeksoft.io:kotlinx-io", version.ref = "fleeksoft-io" }
+fleeksoft-io-okio = { module = "com.fleeksoft.io:okio", version.ref = "fleeksoft-io" }
+fleeksoft-charset = { module = "com.fleeksoft.charset:charset", version.ref = "fleeksoft-io" }
+fleeksoft-charset-ext = { module = "com.fleeksoft.charset:charset-ext", version.ref = "fleeksoft-io" }
+yoga-layout = { module = "com.facebook.yoga:yoga", version.ref = "yoga" }
+
+[plugins]
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+kmp = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+power-assert = { id = "org.jetbrains.kotlin.plugin.power-assert", version.ref = "kotlin" }
+mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "mavenPublish" }
+kotlinx-benchmark = { id = "org.jetbrains.kotlinx.benchmark", version.ref = "kotlinx-benchmark" }
+allopen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }

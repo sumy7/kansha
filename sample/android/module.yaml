@@ -1,0 +1,11 @@
+product: android/app
+
+apply: [ ../../common.module-template.yaml ]
+
+dependencies:
+    - ../shared
+
+settings:
+    compose:
+        enabled: true
+        version: 1.6.10

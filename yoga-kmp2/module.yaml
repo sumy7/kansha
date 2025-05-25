@@ -1,0 +1,26 @@
+product:
+  type: lib
+  platforms: [ jvm, js, wasm, android, linuxX64, linuxArm64, tvosArm64, tvosX64, tvosSimulatorArm64, macosX64, macosArm64, iosArm64, iosSimulatorArm64, iosX64, mingwX64, watchosArm32, watchosArm64, watchosDeviceArm64, watchosSimulatorArm64, androidNativeX86, androidNativeX64, androidNativeArm32, androidNativeArm64 ]
+
+apply: [ ../common.module-template.yaml ]
+
+aliases:
+  - jvmAndAndroid: [ jvm, android ]
+
+dependencies@jvmAndAndroid:
+  - $libs.ktor.client.okhttp
+#  - $libs.yoga.layout
+
+dependencies@jvm:
+  - $libs.ktor.client.okhttp
+#  - $libs.yoga.layout
+
+dependencies@js:
+  - $libs.ktor.client.js
+#  - npm: "yoga-layout"
+#    version: "^3.2.1"
+
+dependencies@wasm:
+  - $libs.ktor.client.js
+#  - npm: "yoga-layout"
+#    version: "^3.2.1"

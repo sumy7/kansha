@@ -1,0 +1,14 @@
+product:
+  type: lib
+  platforms: [ jvm, js, wasm, android ]
+
+apply: [ ../common.module-template.yaml ]
+
+repositories:
+  - mavenLocal
+
+aliases:
+  - jvmAndAndroid: [ jvm, android ]
+
+dependencies:
+  - ../kansha-core: exported

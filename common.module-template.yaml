@@ -1,0 +1,13 @@
+settings:
+  kotlin:
+    apiVersion: 2.0
+    languageVersion: 2.0
+  jvm:
+    release: 17
+  android:
+    compileSdk: 35
+    minSdk: 21
+    namespace: "com.sumygg.kansha"
+
+test-dependencies:
+  - $kotlin-test
