@@ -24,11 +24,17 @@ abstract class Element {
     var borderWidth = 1
     var borderColor = "#000000" // 默认黑色边框
     var opacity = 1.0f
+    var backgroundColor: String? = null
     var flex
         set(value) {
             cssNode.flex = value
         }
         get() = cssNode.flex
+    var flexDirection
+        set(value) {
+            cssNode.flexDirection = value
+        }
+        get() = cssNode.flexDirection
 
     /**
      * 添加子元素

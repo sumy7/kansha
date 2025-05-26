@@ -13,8 +13,13 @@ fun rect(
     debug: Boolean = false,
 ): String {
     val opacity = node.opacity
+    val fills = mutableListOf<String>()
     val shape = StringBuilder()
     val extra = StringBuilder()
+
+    if (node.backgroundColor != null) {
+        fills.add(node.backgroundColor!!)
+    }
 
     if (debug) {
         extra.append(
@@ -25,7 +30,7 @@ fun rect(
                     "y" to top.toString(),
                     "width" to width.toString(),
                     "height" to height.toString(),
-                    "fill" to "transparent",
+                    "fill" to "none",
                     "stroke" to "#ff5757",
                     "stroke-width" to "1",
                 )
@@ -33,6 +38,20 @@ fun rect(
         )
     }
 
+    fills.forEach { fill ->
+        shape.append(
+            buildXMLString(
+                "rect",
+                mapOf(
+                    "x" to left.toString(),
+                    "y" to top.toString(),
+                    "width" to width.toString(),
+                    "height" to height.toString(),
+                    "fill" to fill,
+                )
+            )
+        )
+    }
     shape.append(
         border(
             node,

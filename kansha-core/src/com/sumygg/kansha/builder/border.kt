@@ -17,6 +17,7 @@ fun border(
             "y" to top.toString(),
             "width" to width.toString(),
             "height" to height.toString(),
+            "fill" to "none",
             "stroke" to node.borderColor,
             "stroke-width" to node.borderWidth.toString(),
         )

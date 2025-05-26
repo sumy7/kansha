@@ -100,7 +100,7 @@ fun SvgImage(svg: String) {
             .decoderFactory(SvgDecoder.Factory())
             .build(),
         contentDescription = "SVG Image",
-        modifier = Modifier.width(200.dp).height(200.dp),
+        modifier = Modifier.width(200.dp).height(200.dp).background(Color.White),
     )
 }
 
@@ -141,6 +141,8 @@ fun HelloKansha() {
     val container = View()
     container.width = 100
     container.height = 100
+    container.flexDirection = CSSFlexDirection.ROW
+    container.backgroundColor = "red"
     val view1 = View()
     val view2 = View()
     container.add(view1)
@@ -149,6 +151,7 @@ fun HelloKansha() {
     view1.height = 100
     view2.flex = 1f
     view2.height = 100
+    view2.backgroundColor = "blue"
 
     val svg = kansha {
         debug = true
