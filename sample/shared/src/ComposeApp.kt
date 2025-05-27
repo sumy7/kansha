@@ -16,6 +16,7 @@ import com.facebook.csslayout.CSSFlexDirection
 import com.facebook.csslayout.CSSLayout
 import com.facebook.csslayout.CSSLayoutContext
 import com.facebook.csslayout.CSSNode
+import com.sumygg.kansha.elements.Text
 import com.sumygg.kansha.elements.View
 import com.sumygg.kansha.kansha
 import kotlinx.coroutines.launch
@@ -152,6 +153,14 @@ fun HelloKansha() {
     view2.flex = 1f
     view2.height = 100
     view2.backgroundColor = "blue"
+    val text1 = Text()
+    text1.content = "Hello"
+    text1.color = "#ffffff"
+    val text2 = Text()
+    text2.content = "Kansha"
+    text2.color = "#ffffff"
+    view1.add(text1)
+    view2.add(text2)
 
     val svg = kansha {
         debug = true

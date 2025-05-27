@@ -5,14 +5,16 @@ import com.sumygg.kansha.builder.rect
 
 class View : Element() {
 
-    override fun render(appendable: Appendable, context: KanshaContext) {
-        super.render(appendable, context)
+    override fun render(appendable: Appendable, x: Float, y: Float, context: KanshaContext) {
+        super.render(appendable, x, y, context)
+        val left = x + cssNode.layoutX
+        val top = y + cssNode.layoutY
         appendable.append(
             rect(
                 this,
                 "",
-                cssNode.layoutX.toInt(),
-                cssNode.layoutY.toInt(),
+                left.toInt(),
+                top.toInt(),
                 cssNode.layoutWidth.toInt(),
                 cssNode.layoutHeight.toInt(),
                 debug = context.debug
@@ -20,7 +22,7 @@ class View : Element() {
         )
         if (hasChildren()) {
             children.forEach { child ->
-                child.render(appendable, context)
+                child.render(appendable, left, top, context)
             }
         }
     }

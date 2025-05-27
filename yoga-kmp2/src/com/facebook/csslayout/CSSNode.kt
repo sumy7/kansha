@@ -38,7 +38,7 @@ class CSSNode {
          *
          * NB: measure is NOT guaranteed to be threadsafe/re-entrant safe!
          */
-        fun measure(node: CSSNode?, width: Float, measureOutput: MeasureOutput?)
+        fun measure(node: CSSNode, width: Float, measureOutput: MeasureOutput)
     }
 
     // VisibleForTesting

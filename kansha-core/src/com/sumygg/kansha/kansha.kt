@@ -44,7 +44,7 @@ fun kansha(block: KanshaContext.() -> Element): String {
         width = computedWidth.toInt(),
         height = computedHeight.toInt(),
         content = buildString {
-            element.render(this, context)
+            element.render(this, 0f, 0f, context)
         }
     )
 }

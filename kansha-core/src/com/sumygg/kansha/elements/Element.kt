@@ -52,6 +52,6 @@ abstract class Element {
     /**
      * 渲染元素到 svg
      */
-    open fun render(appendable: Appendable, context: KanshaContext) {}
+    open fun render(appendable: Appendable, x: Float, y: Float, context: KanshaContext) {}
 
 }
