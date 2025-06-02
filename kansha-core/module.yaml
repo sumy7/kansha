@@ -8,8 +8,32 @@ aliases:
   - jvmAndAndroid: [ jvm, android ]
 
 dependencies:
+  - $libs.kotlinx.coroutines.core: exported
+  - $libs.ktor.client.core: exported
   - $libs.ktor.utils: exported
+  - $libs.ktor.http: exported
   - ../yoga-kmp2
+
+dependencies@jvmAndAndroid:
+  - $libs.ktor.client.okhttp
+
+dependencies@apple:
+  - $libs.ktor.client.darwin
+
+dependencies@js:
+  - $libs.ktor.client.js
+
+dependencies@wasm:
+  - $libs.ktor.client.js
+
+dependencies@mingw:
+  - $libs.ktor.client.win
+
+dependencies@linux:
+  - $libs.ktor.client.cio
+
+dependencies@androidNative:
+  - $libs.ktor.client.cio
 
 repositories:
   - mavenLocal

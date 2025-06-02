@@ -10,8 +10,11 @@ fun rect(
     top: Int,
     width: Int,
     height: Int,
+    src: String? = null,
     debug: Boolean = false,
 ): String {
+    val isImage = !src.isNullOrBlank()
+
     val opacity = node.opacity
     val fills = mutableListOf<String>()
     val shape = StringBuilder()
@@ -52,6 +55,22 @@ fun rect(
             )
         )
     }
+
+    if (isImage) {
+        extra.append(
+            buildXMLString(
+                "image",
+                mapOf(
+                    "x" to left.toString(),
+                    "y" to top.toString(),
+                    "width" to width.toString(),
+                    "height" to height.toString(),
+                    "href" to src,
+                )
+            )
+        )
+    }
+
     shape.append(
         border(
             node,

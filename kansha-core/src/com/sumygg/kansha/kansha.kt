@@ -1,11 +1,6 @@
 package com.sumygg.kansha
 
-import com.facebook.csslayout.CSSAlign
-import com.facebook.csslayout.CSSFlexDirection
-import com.facebook.csslayout.CSSJustify
-import com.facebook.csslayout.CSSLayoutContext
-import com.facebook.csslayout.CSSNode
-import com.facebook.csslayout.CSSWrap
+import com.facebook.csslayout.*
 import com.sumygg.kansha.builder.svg
 import com.sumygg.kansha.elements.Element
 
@@ -17,7 +12,7 @@ class KanshaContext {
 
 }
 
-fun kansha(block: KanshaContext.() -> Element): String {
+suspend fun kansha(block: KanshaContext.() -> Element): String {
     val context = KanshaContext()
     val element = context.block()
 
@@ -33,6 +28,8 @@ fun kansha(block: KanshaContext.() -> Element): String {
     root.alignItems = CSSAlign.AUTO
     root.justifyContent = CSSJustify.FLEX_START
     root.addChildAt(element.cssNode, 0)
+
+    element.computeStyle()
 
     val layoutContext = CSSLayoutContext()
     root.calculateLayout(layoutContext)

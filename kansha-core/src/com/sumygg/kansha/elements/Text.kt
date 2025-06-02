@@ -1,7 +1,5 @@
 package com.sumygg.kansha.elements
 
-import com.facebook.csslayout.CSSAlign
-import com.facebook.csslayout.CSSJustify
 import com.facebook.csslayout.CSSNode
 import com.facebook.csslayout.MeasureOutput
 import com.sumygg.kansha.KanshaContext
@@ -42,6 +40,10 @@ class Text : Element() {
 //        super.add(text)
 //        return text
 //    }
+
+    override suspend fun computeStyle() {
+        super.computeStyle()
+    }
 
     override fun render(appendable: Appendable, x: Float, y: Float, context: KanshaContext) {
         super.render(appendable, x, y, context)

@@ -50,6 +50,11 @@ abstract class Element {
     fun hasChildren(): Boolean = children.isNotEmpty()
 
     /**
+     * 计算并转换样式
+     */
+    open suspend fun computeStyle() {}
+
+    /**
      * 渲染元素到 svg
      */
     open fun render(appendable: Appendable, x: Float, y: Float, context: KanshaContext) {}

@@ -1,4 +1,3 @@
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -9,13 +8,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import coil3.compose.LocalPlatformContext
-import coil3.compose.rememberAsyncImagePainter
 import coil3.request.ImageRequest
 import coil3.svg.SvgDecoder
 import com.facebook.csslayout.CSSFlexDirection
 import com.facebook.csslayout.CSSLayout
 import com.facebook.csslayout.CSSLayoutContext
 import com.facebook.csslayout.CSSNode
+import com.sumygg.kansha.elements.Image
 import com.sumygg.kansha.elements.Text
 import com.sumygg.kansha.elements.View
 import com.sumygg.kansha.kansha
@@ -139,36 +138,49 @@ fun CssLayout() {
 
 @Composable
 fun HelloKansha() {
-    val container = View()
-    container.width = 100
-    container.height = 100
-    container.flexDirection = CSSFlexDirection.ROW
-    container.backgroundColor = "red"
-    val view1 = View()
-    val view2 = View()
-    container.add(view1)
-    container.add(view2)
-    view1.flex = 1f
-    view1.height = 100
-    view2.flex = 1f
-    view2.height = 100
-    view2.backgroundColor = "blue"
-    val text1 = Text()
-    text1.content = "Hello"
-    text1.color = "#ffffff"
-    val text2 = Text()
-    text2.content = "Kansha"
-    text2.color = "#ffffff"
-    view1.add(text1)
-    view2.add(text2)
+    val coroutineScope = rememberCoroutineScope()
+    var svgContent by remember { mutableStateOf("") }
 
-    val svg = kansha {
-        debug = true
-        width = 100
-        height = 100
+    LaunchedEffect(Unit) {
+        val container = View()
+        container.width = 100
+        container.height = 100
+        container.flexDirection = CSSFlexDirection.ROW
+        container.backgroundColor = "red"
+        val view1 = View()
+        val view2 = View()
+        container.add(view1)
+        container.add(view2)
+        view1.flex = 1f
+        view1.height = 100
+        view2.flex = 1f
+        view2.height = 100
+        view2.backgroundColor = "blue"
+        val text1 = Text()
+        text1.content = "Hello"
+        text1.color = "#ffffff"
+        val text2 = Text()
+        text2.content = "Kansha"
+        text2.color = "#ffffff"
+        view1.add(text1)
+        view2.add(text2)
+        val img1 = Image()
+        img1.src = "https://dummyimage.com/200x100/000/fff"
+        img1.width = 200
+        img1.height = 100
+        view1.add(img1)
 
-        container
+        val svg = kansha {
+            debug = true
+            width = 100
+            height = 100
+
+            container
+        }
+        println("Hello Kansha\n${svg}")
+
+        svgContent = svg
     }
-    println("Hello Kansha\n${svg}")
-    SvgImage(svg)
+
+    SvgImage(svgContent)
 }
