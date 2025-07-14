@@ -1,0 +1,25 @@
+[workspace]
+members  = ["crates/*"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+
+[workspace.dependencies]
+parley = "0.5.0"
+pretty_assertions = "1.4.1"
+html5ever = "0.35"
+xml5ever = "0.35"
+
+[package]
+name = "hello-world"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+#html5ever = "0.29"
+#kuchiki = { package = "kuchikiki", version = "=0.8.8-speedreader" }
+lightningcss = "1.0.0-alpha.59"
+anyhow = "1.0.98"
+pretty_assertions = "1.4.1"

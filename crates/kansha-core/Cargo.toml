@@ -1,0 +1,10 @@
+[package]
+name = "kansha-core"
+edition.workspace = true
+version.workspace = true
+
+[dependencies]
+pretty_assertions = { workspace = true }
+
+[dev-dependencies]
+pretty_assertions = { workspace = true }
