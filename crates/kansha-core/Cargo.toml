@@ -4,7 +4,10 @@ edition.workspace = true
 version.workspace = true
 
 [dependencies]
+kansha-node = { workspace = true }
 pretty_assertions = { workspace = true }
+dioxus = { workspace = true }
+dioxus-core = { workspace = true }
 
 [dev-dependencies]
 pretty_assertions = { workspace = true }

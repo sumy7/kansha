@@ -1,0 +1,19 @@
+[package]
+name = "kansha-layout"
+edition.workspace = true
+version.workspace = true
+
+[lib]
+proc-macro = true
+
+[dependencies]
+#dioxus-rsx = { workspace = true }
+#dioxus-core-macro = { workspace = true }
+#proc-macro2 = { workspace = true }
+#quote = { workspace = true }
+#syn = { workspace = true, features = ["full", "extra-traits", "visit"] }
+
+pretty_assertions = { workspace = true }
+
+[dev-dependencies]
+pretty_assertions = { workspace = true }

@@ -1,0 +1,17 @@
+[package]
+name = "kansha-node"
+edition.workspace = true
+version.workspace = true
+
+[dependencies]
+pretty_assertions = { workspace = true }
+atomic_refcell = { workspace = true }
+taffy = { workspace = true }
+style = { workspace = true }
+dioxus-core = { workspace = true }
+slab = { workspace = true }
+rustc-hash = { workspace = true }
+markup5ever = { workspace = true }
+
+[dev-dependencies]
+pretty_assertions = { workspace = true }

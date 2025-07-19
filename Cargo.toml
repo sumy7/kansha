@@ -1,5 +1,5 @@
 [workspace]
-members  = ["crates/*"]
+members = ["crates/*"]
 resolver = "2"
 
 [workspace.package]
@@ -7,10 +7,29 @@ version = "0.1.0"
 edition = "2024"
 
 [workspace.dependencies]
+kansha-core = { path = "./crates/kansha-core", version = "0.1.0" }
+kansha-layout = { path = "./crates/kansha-layout", version = "0.1.0" }
+kansha-node = { path = "./crates/kansha-node", version = "0.1.0" }
+
 parley = "0.5.0"
 pretty_assertions = "1.4.1"
+markup5ever = "0.35"
 html5ever = "0.35"
 xml5ever = "0.35"
+taffy = { version = "0.8", default-features = false, features = ["std", "flexbox", "grid", "block_layout", "content_size", "calc"] }
+style = { version = "0.4", package = "stylo" }
+atomic_refcell = "0.1.13"
+dioxus = { version = "0.6.3", default-features = false, features = ["macro", "signals", "html"] }
+dioxus-core = "0.6.3"
+dioxus-html = "0.6.3"
+dioxus-signals = "0.6.3"
+#dioxus-rsx = { version = "0.6.3" }
+#dioxus-core-macro = { version = "0.6.3" }
+proc-macro2 = "1.0"
+syn = "2.0"
+quote = "1.0"
+slab = "0.4.10"
+rustc-hash = "2.0.0"
 
 [package]
 name = "hello-world"
