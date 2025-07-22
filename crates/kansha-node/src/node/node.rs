@@ -3,8 +3,8 @@ use markup5ever::{local_name, LocalName, QualName};
 use slab::Slab;
 use std::cell::{Cell, RefCell};
 use std::fmt::Write;
-use style::Atom;
 use taffy::{Layout, Style};
+use cssparser::{parse_one_rule};
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DisplayOuter {
@@ -216,7 +216,7 @@ pub struct ElementData {
     pub name: QualName,
 
     /// The elements id attribute parsed as an atom (if it has one)
-    pub id: Option<Atom>,
+    pub id: Option<String>,
 
     /// The element's attributes
     pub attrs: Attributes,
@@ -228,7 +228,7 @@ impl ElementData {
             .iter()
             .find(|attr| &attr.name.local == "id")
             .map(|attr| attr.value.as_ref())
-            .map(|value: &str| Atom::from(value));
+            .map(|value: &str| value.to_string());
 
         let mut data = ElementData {
             name,
@@ -237,6 +237,12 @@ impl ElementData {
         };
 
         data
+    }
+
+    pub fn flush_style_attribute(&mut self) {
+
+
+
     }
 }
 

@@ -7,11 +7,11 @@ version.workspace = true
 pretty_assertions = { workspace = true }
 atomic_refcell = { workspace = true }
 taffy = { workspace = true }
-style = { workspace = true }
 dioxus-core = { workspace = true }
 slab = { workspace = true }
 rustc-hash = { workspace = true }
 markup5ever = { workspace = true }
+cssparser = { workspace = true }
 
 [dev-dependencies]
 pretty_assertions = { workspace = true }

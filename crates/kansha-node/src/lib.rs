@@ -3,6 +3,8 @@ use markup5ever::{ns, LocalName, Namespace, QualName};
 pub mod document;
 pub mod mutator;
 pub mod node;
+pub mod styles1;
+pub mod styles;
 
 pub type NodeId = usize;
 

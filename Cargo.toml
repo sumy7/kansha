@@ -17,7 +17,6 @@ markup5ever = "0.35"
 html5ever = "0.35"
 xml5ever = "0.35"
 taffy = { version = "0.8", default-features = false, features = ["std", "flexbox", "grid", "block_layout", "content_size", "calc"] }
-style = { version = "0.4", package = "stylo" }
 atomic_refcell = "0.1.13"
 dioxus = { version = "0.6.3", default-features = false, features = ["macro", "signals", "html"] }
 dioxus-core = "0.6.3"
@@ -30,6 +29,7 @@ syn = "2.0"
 quote = "1.0"
 slab = "0.4.10"
 rustc-hash = "2.0.0"
+cssparser= "0.35.0"
 
 [package]
 name = "hello-world"
@@ -39,6 +39,5 @@ edition = "2024"
 [dependencies]
 #html5ever = "0.29"
 #kuchiki = { package = "kuchikiki", version = "=0.8.8-speedreader" }
-lightningcss = "1.0.0-alpha.59"
 anyhow = "1.0.98"
 pretty_assertions = "1.4.1"
