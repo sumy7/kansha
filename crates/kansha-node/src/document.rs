@@ -1,7 +1,8 @@
 use crate::node::attributes::Attribute;
 use crate::node::node::{ElementData, Node, NodeData, TextNodeData};
 use crate::qual_name;
-use markup5ever::{local_name, QualName};
+use crate::styles::parse_style_attribute_to;
+use markup5ever::{QualName, local_name};
 use slab::Slab;
 use std::collections::{HashMap, HashSet};
 
@@ -146,7 +147,9 @@ impl DocumentMutator<'_> {
     }
 
     pub fn create_element(&mut self, name: QualName, attrs: Vec<Attribute>) -> usize {
-        let data = ElementData::new(name, attrs);
+        let mut data = ElementData::new(name, attrs);
+        data.flush_style_attribute();
+
         let id = self.doc.create_node(NodeData::Element(data));
         id
     }
@@ -200,6 +203,11 @@ impl DocumentMutator<'_> {
         };
 
         element.attrs.set(name.clone(), value);
+
+        let attr = &name.local;
+        if *attr == local_name!("style") {
+            element.flush_style_attribute();
+        }
     }
 
     pub fn clear_attribute(&mut self, node_id: usize, name: QualName) {
@@ -213,6 +221,11 @@ impl DocumentMutator<'_> {
         let had_attr = removed_attr.is_some();
         if !had_attr {
             return;
+        }
+
+        let attr = &name.local;
+        if *attr == local_name!("style") {
+            element.flush_style_attribute();
         }
     }
 

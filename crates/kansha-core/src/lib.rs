@@ -21,6 +21,12 @@ pub fn kansha(element: AppComponent) {
 
     document.get_node(root_element_id).unwrap().print_tree(0);
 
+    document.iter_subtree_mut(root_element_id, |node, doc| {
+        // 打印节点的 style 属性
+        let node_data = &doc.get_node(node).unwrap().data;
+        println!("Node ID: {}, Node Data: {:?}", node, node_data);
+    });
+
     // let commands = vdom.rebuild_to_vec();
     // // vdom.render_suspense_immediate();
     //

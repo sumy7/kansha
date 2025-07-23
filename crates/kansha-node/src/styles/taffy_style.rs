@@ -92,6 +92,7 @@ impl ComputedStyle {
             }
             "display" => {
                 self.display = self.parse_display(&declaration.value);
+                println!("Parsed display: {:?}", self.display);
                 // Update Taffy layout style
                 self.layout_style.display = match self.display {
                     DisplayType::Block => Display::Block,

@@ -1,10 +1,10 @@
 use crate::node::attributes::{Attribute, Attributes};
-use markup5ever::{local_name, LocalName, QualName};
+use crate::styles::{ComputedStyle, Declaration, parse_style_attribute};
+use markup5ever::{LocalName, QualName, local_name};
 use slab::Slab;
 use std::cell::{Cell, RefCell};
 use std::fmt::Write;
-use taffy::{Layout, Style};
-use cssparser::{parse_one_rule};
+use taffy::Layout;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum DisplayOuter {
@@ -33,13 +33,8 @@ pub struct Node {
     /// Node type (Element, TextNode, etc) specific data
     pub data: NodeData,
 
-    // This little bundle of joy is our style data from stylo and a lock guard that allows access to it
-    // TODO: See if guard can be hoisted to a higher level
-    // pub stylo_element_data: AtomicRefCell<Option<StyloElementData>>,
-    // pub guard: SharedRwLock,
-
     // Taffy layout data:
-    pub style: Style,
+    pub style: ComputedStyle,
     // pub has_snapshot: bool,
     // pub snapshot_handled: AtomicBool,
     pub display_outer: DisplayOuter,
@@ -59,9 +54,7 @@ impl Node {
             layout_children: RefCell::new(None),
             paint_children: RefCell::new(None),
             data,
-
-            // stylo_element_data: Default::default(),
-            style: Style::default(),
+            style: ComputedStyle::default(),
             display_outer: DisplayOuter::Block,
             final_layout: Layout::new(),
         }
@@ -220,6 +213,9 @@ pub struct ElementData {
 
     /// The element's attributes
     pub attrs: Attributes,
+
+    /// The element's parsed style attribute
+    pub style_attribute: Option<Vec<Declaration>>,
 }
 
 impl ElementData {
@@ -234,15 +230,24 @@ impl ElementData {
             name,
             id: id_attr_atom,
             attrs: Attributes::new(attrs),
+            style_attribute: Default::default(),
         };
 
         data
     }
 
+    pub fn attrs(&self) -> &[Attribute] {
+        &self.attrs
+    }
+
+    pub fn attr(&self, name: impl PartialEq<LocalName>) -> Option<&str> {
+        let attr = self.attrs.iter().find(|attr| name == attr.name.local)?;
+        Some(&attr.value)
+    }
+
     pub fn flush_style_attribute(&mut self) {
-
-
-
+        self.style_attribute =
+            parse_style_attribute(self.attr(local_name!("style")).unwrap_or_default());
     }
 }
 
